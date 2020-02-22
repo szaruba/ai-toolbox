@@ -11,7 +11,7 @@ class Rng(Component):
     def __init__(self):
         super().__init__()
 
-        # every second, emit a uniformly distributed random float between [0,1)
+        # every second emit a uniformly distributed random float between [0,1)
         rng_stream = rx.timer(0, 1).pipe(ops.map(lambda s: random.random()))
 
         self.outputs['o1'] = rng_stream
