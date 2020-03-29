@@ -17,6 +17,7 @@ class Visual(Component):
     input_image = rx.subject.Subject()
 
     output_predictions = rx.subject.Subject()
+    output_prediction_label = rx.subject.Subject()  # maximum likelihood predicted class name for debugging
 
     def __init__(self):
         super().__init__()
@@ -32,12 +33,11 @@ class Visual(Component):
         self.input_image.pipe(ops.map(lambda image: self.classify(image)))\
             .subscribe(lambda preds: self.output_predictions.on_next(preds))
 
-
-
     def classify(self, image):
         """classifies the input image and returns the prediction values"""
         prediction = self.classifier.predict(image[np.newaxis, ...])
         predicted_class = np.argmax(prediction[0], axis=-1)
         predicted_class_name = self.imagenet_labels[predicted_class]
         print("spotted a " + predicted_class_name)
+        self.output_prediction_label.on_next(predicted_class_name)
         return prediction[0]
