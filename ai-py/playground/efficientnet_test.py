@@ -1,9 +1,8 @@
 import tensorflow as tf
 import tensorflow_hub as hub
-from tensorflow.keras import layers
 import numpy as np
 import PIL.Image as Image
-import matplotlib.pylab as plt
+
 
 tf.compat.v1.disable_eager_execution()
 module = hub.Module("https://tfhub.dev/google/efficientnet/b0/classification/1")

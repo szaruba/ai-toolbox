@@ -2,6 +2,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 
+__author__ = "Stefan Zaruba"
+
+
+"""
+Reads the generated log file and creates a nice plot.
+
+The generated plot shows the interaction between components over time. It shows how the agent behaves in different 
+situations.
+"""
+
 with open("../log/logfile.txt", "r") as f:
     reader = csv.reader(f, delimiter=';')
 
@@ -25,8 +35,10 @@ with open("../log/logfile.txt", "r") as f:
 
     print(log_values)
 
-img_names = ["cat.0.jpg", "cat.1.jpg", "cat.2.jpg", "cat.3.jpg", "cat.4.jpg", "", "dog.0.jpg", "dog.1.jpg", "dog.2.jpg", "dog.3.jpg", "dog.4.jpg"]
-img_labels = ["tiger cat", "tabby", "Siamese cat", "Egyptian cat", "", "Tibetan terrier", "Chesapeake Bay retriever", "Border collie", "Cardigan", "Labrador retriever"]
+img_names = ["cat.0.jpg", "cat.1.jpg", "cat.2.jpg", "cat.3.jpg", "cat.4.jpg", "", "dog.0.jpg", "dog.1.jpg", "dog.2.jpg",
+             "dog.3.jpg", "dog.4.jpg"]
+img_labels = ["tiger cat", "tabby", "Siamese cat", "Egyptian cat", "", "Tibetan terrier", "Chesapeake Bay retriever",
+              "Border collie", "Cardigan", "Labrador retriever"]
 
 fig = plt.figure(figsize=(20,10))
 sp5 = plt.subplot(515)

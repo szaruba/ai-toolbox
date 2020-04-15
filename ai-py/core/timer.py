@@ -1,6 +1,8 @@
 import rx
 from rx.subject import Subject
 
+__author__ = "Stefan Zaruba"
+
 
 class Timer:
     """Singleton timer used for global time tracking"""
@@ -18,6 +20,7 @@ class Timer:
 
     def start(self):
         """Starts the ticking"""
+
         self.instance.timer.subscribe(lambda x: self.instance.ticks.on_next(x))
 
     def __getattr__(self, item):

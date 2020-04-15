@@ -2,7 +2,6 @@ from rx import operators as ops
 
 from components.cpg import Cpg
 from components.eval import Eval
-from components.rng import Rng
 from components.rpg import Rpg
 from components.visual import Visual
 import time
@@ -10,12 +9,28 @@ from core.env import Env
 from core.logger import Logging
 from core.timer import Timer
 
+__author__ = "Stefan Zaruba"
+
+
+"""
+A demonstration for how some components can be assembled together, to build an agent, who interacts with an environment.
+
+This agent uses a visual component to classify cat/dog images. Results are used by an evaluation component, to 
+estimate the situation. The classification is also used by the Rpg component, to produce some randomness. Both results
+are used by a Cpg component to generate a movement pattern.
+
+The final goal is, for the agent, to "run away" from dogs and "run towards" cats. The running away and running towards
+are simulated by the two different muscle activation patterns.
+
+The outputs of every component are logged, by attaching a Logger to their output streams. The resulting CSV log file is
+plotted in the log_visualization.py file.
+"""
+
 demo_mode = True  # set to true to produce a demonstrating log output that cycles through all images in order
 
 # ========= create components ===========
 vis = Visual()
 eval = Eval()
-rng = Rng()
 cpg = Cpg()
 rpg = Rpg(inv_chance=0) if demo_mode else Rpg()
 

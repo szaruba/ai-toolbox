@@ -1,12 +1,24 @@
-# an evaluator component. Evaluates a situation
 import numpy as np
-import rx
 import rx.subject
 
 from core.component import Component
 
+__author__ = "Stefan Zaruba"
+
 
 class Eval(Component):
+    """
+    An evaluator component. Evaluates a situation.
+
+    Receives classification confidences as inputs for the classes of the http://www.image-net.org/ challenge. Outputs
+    opportunity and danger levels, based on whether it thinks the input image is a cat/dog. Cats are seen as
+    opportunities for the agent, whereas dogs are considered dangerous.
+
+    :var input_encountered_object: Input is the prediction confidence for each image class. View the link for a list
+    of classes: https://storage.googleapis.com/download.tensorflow.org/data/ImageNetLabels.txt
+    :var output_danger_level: A float between [0,1] describing how dangerous the encountered object is.
+    :var output_opportunity_level: A float between [0,1] describing how much opportunity the encountered object promises
+    """
 
     # inputs
     input_encountered_object = rx.subject.Subject()

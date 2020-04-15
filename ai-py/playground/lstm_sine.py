@@ -1,4 +1,3 @@
-import numpy as np
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM
 from tensorflow.keras.layers import Dense
@@ -9,6 +8,7 @@ model = Sequential()
 model.add(LSTM(10, activation='tanh'))
 model.add(Dense(1, activation='tanh'))
 model.compile(optimizer='adam', loss='mse')
+
 
 def train_function(x):
     return x % 2 - 1
@@ -25,6 +25,7 @@ def split_sequence(sequence, n_steps):
                 X.append(seq_x)
                 y.append(seq_y)
         return np.array(X), np.array(y)
+
 
 # define input sequence
 xaxis = np.arange(-50*np.pi, 50*np.pi, 0.1)
@@ -43,9 +44,13 @@ plt.legend(loc="upper right")
 plt.show()
 
 test_xaxis = np.arange(0, 10*np.pi, 0.1)
+
+
 def test_function(x):
     return x % 2 - 1
     # return np.cos(x)
+
+
 calc_y = test_function(test_xaxis)
 # start with initial n values, rest will be predicted
 test_y = calc_y[:n_steps]
