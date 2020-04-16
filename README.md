@@ -36,7 +36,7 @@ The behavior of an agent is visualized, by attaching `loggers` to its components
 the results. Alternatively, the environment could feature a visual representation of the agent's interactions.
 
 ## Description of Demo
-A demo is implemented, that shows the intended architecture, when building an agent within this framework. It features an 
+The current example implementation shows the intended architecture for building an agent within this framework. It features an 
 example agent consisting of 4 components (`components/`), an environment (`core/env.py`), logging (`core/logger.py`) and 
 plotting (`run/log_visualization.py`) functionalities. In `run/component_test.py` the main entry point to this 
 example can be found. There, the agent is assembled together, the environment is set up and the and the logging is
