@@ -1,4 +1,20 @@
-# ai-toolbox
+# A Toolbox for Artificial Consciousness
+
+## How to Run the Project
+Install Python (tested with 3.7) and the following libraries:
+- numpy
+- csv
+- time
+- rx
+- PIL
+- random
+- abc
+- tensorflow
+- tensorflow_hub
+- keras
+
+Run the script `run/component_test.py` to simulate the agent in the environment. Afterwards, run `run/log_visualization.py`
+to create a plot of the simulation. The log files and plots will be located in the `log/` folder.
 
 ## Project Vision
 The general vision for this project is, to build an extensible framework of AI-components, which can be linked

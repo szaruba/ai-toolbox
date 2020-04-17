@@ -26,7 +26,7 @@ The outputs of every component are logged, by attaching a Logger to their output
 plotted in the log_visualization.py file.
 """
 
-demo_mode = True  # set to true to produce a demonstrating log output that cycles through all images in order
+demo_mode = False  # set to true to produce a demonstrating log output that cycles through all images in order
 
 # ========= create components ===========
 vis = Visual()
